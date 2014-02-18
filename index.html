@@ -7,15 +7,31 @@
         <script type="text/javascript" src="js/jquery.jplayer.inspector.js"></script><!-- DEBUGGER -->
         <script type="text/javascript">
             $(document).ready(function(){
+                var stream = {
+                    title: "ABC Jazz",
+                    mp3: "http://listen.radionomy.com/abc-jazz"
+                },
+                ready = false;
+                
                 $("#jquery_jplayer_1").jPlayer({
-                    ready: function () {
-                        $(this).jPlayer("setMedia", {
-                            m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                        });
+                    ready: function (event) {
+                        ready = true;
+                        $(this).jPlayer("setMedia", stream);
                     },
-                    swfPath: "/js",
-                    supplied: "m4a, oga"
+                    pause: function() {
+                        $(this).jPlayer("clearMedia");
+                    },
+                    error: function(event) {
+                        if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+                            // Setup the media stream again and play it.
+                            $(this).jPlayer("setMedia", stream).jPlayer("play");
+                        }
+                    },
+                    swfPath: "js/",
+                    supplied: "mp3",
+                    preload: "none",
+                    wmode: "window",
+                    keyEnabled: true
                 });
 
                 $("#jplayer_inspector").jPlayerInspector({jPlayer:$("#jquery_jplayer_1")});
