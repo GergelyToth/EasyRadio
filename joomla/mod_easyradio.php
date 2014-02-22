@@ -10,11 +10,28 @@ $document->addScript('modules/mod_easyradio/js/jquery.jplayer.min.js'); // add j
 $document->addScript('modules/mod_easyradio/add-on/jquery.jplayer.inspector.js'); // DEBUGGING
 $document->addStyleSheet('modules/mod_easyradio/skins/blue/blue.css'); // add CSS
 
+// get the type of the server
+$type = ''; // if the type is IceCast, don't include anything
+if ( $params->get('type') == 1 ) { // if the type us ShoutCast include /;stream/1
+    if ( substr( $params->get('url'), -1) == '/' ) {
+        $type = ';stream/1';
+    } else {
+        $type = '/;stream/1';
+    }
+}
+
+// format of the streaming
+if ( $params->get('format') == 0 ) {
+    $format = 'aac';
+} else {
+    $format = 'mp3';
+}
+
 $document->addScriptDeclaration('
 jQuery(document).ready(function(){
     var stream = {
-        title: "ABC Jazz",
-        mp3: "http://listen.radionomy.com/abc-jazz"
+        title: "EasyRadio",
+        ' . $format . ': "' . $params->get('url') . $type . '"
     },
     ready = false;
 
@@ -61,7 +78,7 @@ jQuery(document).ready(function(){
         </div>
         <div class="jp-title">
             <ul>
-              <li>Bubble</li>
+              <li><?php echo $params->get('name'); ?></li>
             </ul>
         </div>
         <div class="jp-no-solution">
@@ -70,4 +87,8 @@ jQuery(document).ready(function(){
         </div>
     </div>
 </div>
-<div id="jplayer_inspector">inspector</div>
+<?php
+    if ($params->get('inspector') == 1) {
+        echo '<div id="jplayer_inspector">inspector</div>';
+    }
+?>

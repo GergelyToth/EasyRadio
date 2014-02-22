@@ -12,7 +12,7 @@
 	<creationDate>February 2014</creationDate>
 	<copyright>(C) 2014 Gergely Toth. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<description>Radio module designed for Joomla 3</description>
+	<description>Highly customizable radio module designed for Joomla 3</description>
 	
 	<files>
 		<filename module="mod_easyradio">mod_easyradio.php</filename>
@@ -22,5 +22,56 @@
 		<filename>index.html</filename>
 		<filename>mod_multipolar_radio.xml</filename>
 	</files>
-
+    
+    <updateservers>
+        <server type="extension" priority="1" name="GitHub Update Site">https://github.com/GergelyToth/EasyRadio/tree/master/joomla</server> <!-- needs to be tested -->
+    </updateservers>
+    
+    <!-- module parameters -->
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="name"
+                       type="text"
+                       label="Name"
+                       description="The name of the radio" 
+                       required="required" />
+                <field name="url"
+                       type="text"
+                       label="URL"
+                       description="The URL for the chanel. Please include http:// as well"
+                       required="required" />
+                <field name="type"
+                       type="radio"
+                       class="btn-group"
+                       label="Type"
+                       description="Type of the radio server"
+                       default="0">
+                    <option value="0">Icecast</option>
+                    <option value="1">ShoutCast</option>
+                </field>
+                <field name="format"
+                       type="radio"
+                       class="btn-group"
+                       label="Format"
+                       description="The format of the streaming"
+                       default="1">
+                    <option value="0">M4A (AAC)</option>
+                    <option value="1">MP3</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="inspector"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       label="Show Inspector"
+                       description="Inspector is used for debugging purposes only. Recommended to turn off for live sites!"
+                       default="0">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+        </fields>
+                
+    </config>
 </extension>
