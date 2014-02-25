@@ -6,9 +6,25 @@ $url = JURI::base();
 $document = JFactory::getDocument();
 
 JHtml::_('jquery.framework'); // load jQuery framework to Joomla 3
-$document->addScript('modules/mod_easyradio/js/jquery.jplayer.min.js'); // add jPlayer .js file
-$document->addScript('modules/mod_easyradio/add-on/jquery.jplayer.inspector.js'); // DEBUGGING
-$document->addStyleSheet('modules/mod_easyradio/skins/blue/blue.css'); // add CSS
+$document->addScript('modules/mod_easyradio/media/js/jquery.jplayer.min.js'); // add jPlayer .js file
+$document->addScript('modules/mod_easyradio/media/js/jquery.jplayer.inspector.js'); // DEBUGGING
+$document->addStyleSheet('modules/mod_easyradio/media/css/blue.css'); // add CSS
+
+// styling
+$document->addStyleDeclaration('
+div.jp-audio-stream {
+    color: ' . $params->get('name-color') . ';
+    border: ' . $params->get('border-width') . 'px solid ' . $params->get('border-color') . ';
+}
+
+div.jp-interface {
+    background: ' . $params->get('background-color') . ';
+}
+
+div.jp-type-single div.jp-title {
+    background-color: ' . $params->get('name-background') . ';
+}
+');
 
 // get the type of the server
 $type = ''; // if the type is IceCast, don't include anything
@@ -76,11 +92,14 @@ jQuery(document).ready(function(){
                 <div class="jp-volume-bar-value"></div>
             </div>
         </div>
+       
+<?php if ($params->get("show-name") == 1 ) : ?>
         <div class="jp-title">
             <ul>
               <li><?php echo $params->get('name'); ?></li>
             </ul>
         </div>
+<?php endif; ?>
         <div class="jp-no-solution">
             <span>Update Required</span>
             To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.

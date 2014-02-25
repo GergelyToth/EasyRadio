@@ -5,7 +5,7 @@
 	method="upgrade"
 	client="site">
 	<name>EasyRadio</name>
-	<version>1.0</version>
+	<version>1.1</version>
 	<author>Gergely Toth</author>
 	<authorEmail>tgergely18@gmail.com</authorEmail>
 	<authorUrl>http://gergelytoth.github.io</authorUrl>
@@ -16,15 +16,13 @@
 	
 	<files>
 		<filename module="mod_easyradio">mod_easyradio.php</filename>
-		<folder>add-on</folder>
-		<folder>js</folder>
-		<folder>skins</folder>
+		<folder>media</folder>
 		<filename>index.html</filename>
-		<filename>mod_multipolar_radio.xml</filename>
+		<filename>mod_easyradio.xml</filename>
 	</files>
     
     <updateservers>
-        <server type="extension" priority="1" name="GitHub Update Site">https://github.com/GergelyToth/EasyRadio/tree/master/joomla</server> <!-- needs to be tested -->
+        <server type="extension" priority="1" name="Primary Update Site">http://gergelytoth.com/extensions/easyradio_update.xml</server> <!-- needs to be tested -->
     </updateservers>
     
     <!-- module parameters -->
@@ -60,6 +58,45 @@
                     <option value="1">MP3</option>
                 </field>
             </fieldset>
+            
+            <fieldset name="style" label="Style">
+                <field name="name-background"
+                       type="color"
+                       label="Name background"
+                       description="The background of the name line"
+                       default="#ccc" />
+                <field name="name-color"
+                       type="color"
+                       label="Font color"
+                       description="The color used by the fonts"
+                       default="#666" />
+                <field name="show-name"
+                       type="radio"
+                       class="btn-group"
+                       label="Show name"
+                       description="Show/Hide name line."
+                       default="1">
+                    <option value="1">Show</option>
+                    <option value="0">Hide</option>
+                </field>
+                <field name="background-color"
+                       type="color"
+                       label="Bakcgorund color"
+                       description="The color of the radio background"
+                       default="#eee" />
+                <field name="border-width"
+                       type="text"
+                       label="Border width (px)"
+                       description="Border width, in pixels. If you want to hide the border please enter 0"
+                       default="1" />
+                <field name="border-color"
+                       type="color"
+                       label="Border color"
+                       description="The color of the border around the radio"
+                       default="#009be3" />
+                       
+            </fieldset>
+            
             <fieldset name="advanced">
                 <field name="inspector"
                        type="radio"
