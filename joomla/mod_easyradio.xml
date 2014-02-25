@@ -5,10 +5,10 @@
 	method="upgrade"
 	client="site">
 	<name>EasyRadio</name>
-	<version>1.1</version>
+	<version>1.2</version>
 	<author>Gergely Toth</author>
 	<authorEmail>tgergely18@gmail.com</authorEmail>
-	<authorUrl>http://gergelytoth.github.io</authorUrl>
+	<authorUrl>http://gergelytoth.com</authorUrl>
 	<creationDate>February 2014</creationDate>
 	<copyright>(C) 2014 Gergely Toth. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
@@ -94,7 +94,13 @@
                        label="Border color"
                        description="The color of the border around the radio"
                        default="#009be3" />
-                       
+                <field name="css"
+                       type="list"
+                       label="Icon set"
+                       description="Choose icon set to use for the stream player"
+                       default="grey">
+                    <option value="grey">Grey</option>
+                </field>
             </fieldset>
             
             <fieldset name="advanced">

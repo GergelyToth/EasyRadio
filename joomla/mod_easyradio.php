@@ -8,7 +8,7 @@ $document = JFactory::getDocument();
 JHtml::_('jquery.framework'); // load jQuery framework to Joomla 3
 $document->addScript('modules/mod_easyradio/media/js/jquery.jplayer.min.js'); // add jPlayer .js file
 $document->addScript('modules/mod_easyradio/media/js/jquery.jplayer.inspector.js'); // DEBUGGING
-$document->addStyleSheet('modules/mod_easyradio/media/css/blue.css'); // add CSS
+$document->addStyleSheet('modules/mod_easyradio/media/css/' . $params->get('css') . '.css'); // add CSS
 
 // styling
 $document->addStyleDeclaration('
