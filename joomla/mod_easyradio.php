@@ -1,6 +1,15 @@
 <?php
+/**
+ * EasyRadio Module
+ * 
+ * @package     EasyRadio
+ * @subpackage  Modules
+ * @link        http://gergelytoth.com/joomla/downloads/easyradio
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL General Public License version 3 or later
+ */
+
 // no direct access
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
 
 $url = JURI::base();
 $document = JFactory::getDocument();

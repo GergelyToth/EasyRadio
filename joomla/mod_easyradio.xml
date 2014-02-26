@@ -11,7 +11,7 @@
 	<authorUrl>http://gergelytoth.com</authorUrl>
 	<creationDate>February 2014</creationDate>
 	<copyright>(C) 2014 Gergely Toth. All rights reserved.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<license>GNU General Public License version 3 or later; see http://www.gnu.org/licenses/gpl-3.0.html</license>
 	<description>Highly customizable radio module designed for Joomla 3</description>
 	
 	<files>
