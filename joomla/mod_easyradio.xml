@@ -5,7 +5,7 @@
 	method="upgrade"
 	client="site">
 	<name>EasyRadio</name>
-	<version>1.2</version>
+	<version>1.2.1</version>
 	<author>Gergely Toth</author>
 	<authorEmail>tgergely18@gmail.com</authorEmail>
 	<authorUrl>http://gergelytoth.com</authorUrl>
