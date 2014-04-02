@@ -74,8 +74,9 @@ jQuery(document).ready(function(){
                 jQuery(this).jPlayer("setMedia", stream).jPlayer("play");
             }
         },
-        swfPath: "js/",
+        swfPath: "modules/mod_easyradio/media/js",
         supplied: "mp3",
+		solution: "html, flash",
         preload: "none",
         wmode: "window",
         keyEnabled: true
@@ -111,7 +112,7 @@ jQuery(document).ready(function(){
 <?php endif; ?>
         <div class="jp-no-solution">
             <span>Update Required</span>
-            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin and restart your browser!</a>.
         </div>
     </div>
 </div>
